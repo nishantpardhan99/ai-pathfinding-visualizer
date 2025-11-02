@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pathfinding Visualizer — BFS / DFS / IDS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>Pathfinding Visualizer</h1>
+      <p class="subtitle">BFS · DFS · Iterative Deepening (IDS)</p>
+    </header>
+
+    <main class="main">
+      <section class="board-panel">
+        <div id="grid" class="grid"></div>
+        <div class="controls-inline">
+          <button id="clearBtn" class="btn ghost">Clear</button>
+          <button id="randomWallsBtn" class="btn ghost">Random Walls</button>
+          <label class="small">Speed
+            <input id="speed" type="range" min="10" max="300" value="60">
+          </label>
+          <label class="small">Rows
+            <input id="rows" type="range" min="10" max="40" value="25">
+          </label>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h2>Controls</h2>
+          <div class="control-group">
+            <label>Algorithm</label>
+            <select id="algoSelect">
+              <option value="bfs">BFS</option>
+              <option value="dfs">DFS</option>
+              <option value="ids">IDS</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Mode</label>
+            <div class="btn-row">
+              <button id="modeStart" class="btn active">Place Start</button>
+              <button id="modeEnd" class="btn">Place End</button>
+              <button id="modeWall" class="btn">Wall</button>
+              <button id="modeErase" class="btn">Erase</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <button id="runBtn" class="btn primary">Run</button>
+            <button id="stopBtn" class="btn danger">Stop</button>
+          </div>
+
+          <div class="info">
+            <h3>How to use</h3>
+            <ul>
+              <li>Click grid to place start, end or walls (select mode).</li>
+              <li>Run an algorithm to visualize exploration & path.</li>
+              <li>Adjust speed and rows for different density.</li>
+            </ul>
+          </div>
+
+          <div class="stats">
+            <div>Explored: <span id="exploredCount">0</span></div>
+            <div>Path Length: <span id="pathLen">0</span></div>
+          </div>
+        </div>
+
+        <div class="card small-card">
+          <h3>Colors</h3>
+          <div class="legend">
+            <div><span class="legend-box start"></span> Start</div>
+            <div><span class="legend-box end"></span> End</div>
+            <div><span class="legend-box wall"></span> Wall</div>
+            <div><span class="legend-box frontier"></span> Frontier</div>
+            <div><span class="legend-box visited"></span> Visited</div>
+            <div><span class="legend-box path"></span> Final Path</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <small>Made with ❤️ — Click mode buttons then click grid. IDS uses iterative deepening DFS.</small>
+    </footer>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
